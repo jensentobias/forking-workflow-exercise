@@ -22,5 +22,10 @@ class TestTweets(unittest.TestCase):
         tweet_content = module.tweet().encode('utf-8')
         self.assertFalse(len(tweet_content) <= 280)
 
+    def test_forced_error(self):
+        module = __import__("inerror")
+        tweet_content = module.tweet().encode('utf-8')
+        self.assertFalse(len(tweet_content) > 280)
+
 if __name__ == '__main__':
     unittest.main()
